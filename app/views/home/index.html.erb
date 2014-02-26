@@ -1,2 +1,13 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<%= content_for :styles do %>
+  <!--<link rel="stylesheet" href="/assets/home.js" />-->
+  <%= stylesheet_link_tag "home" %>
+<% end %>
+<%= content_for :scripts do %>
+  <!--<script type="text/javascript" src="/assets/home.js"></script>-->
+  <%= javascript_include_tag "home" %>
+  <script type="text/javascript">
+
+  </script>
+<% end %>
+<h1>未将对象引用设置到对象的实例</h1>
+<p>努力扩大自己的认知</p>
