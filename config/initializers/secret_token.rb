@@ -9,4 +9,18 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Guorj::Application.config.secret_key_base = '7a82355fc97c894e8054539c4697e50103318a6e07b8fbf9fbf754331e76967d6b5e7d28fadbc5edaf43687082d7bd87358c3a9cc62cb709b6a169ba77886a6b'
+require 'securerandom'
+
+def secure_token 
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    File.read(token_file).chomp
+  else
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Guorj::Application.config.secret_key_base = secure_token
+#Guorj::Application.config.secret_key_base = '7a82355fc97c894e8054539c4697e50103318a6e07b8fbf9fbf754331e76967d6b5e7d28fadbc5edaf43687082d7bd87358c3a9cc62cb709b6a169ba77886a6b'
