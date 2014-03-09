@@ -9,5 +9,27 @@
 
   </script>
 <% end %>
-<h1>未将对象引用设置到对象的实例</h1>
-<p>努力扩大自己的认知</p>
+<h1>nil</h1>
+<h1>文章列表</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Content</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.title %></td>
+        <td><%= article.content %></td>
+        <td><%= link_to 'Show', article %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
