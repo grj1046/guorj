@@ -1,6 +1,23 @@
 <%= content_for :styles do %>
   <!--<link rel="stylesheet" href="/assets/home.js" />-->
   <%= stylesheet_link_tag "home" %>
+  <style type="text/css">
+    .list {
+      padding: 0px;
+      line-height:2em;
+      background-color: #FFF;
+      border-radius: 3px;
+    }
+    .cell {
+      border-top: 0px none; 
+      padding-right: 10px;
+      background: none repeat scroll 0% 0% #FFF;
+      overflow: hidden;
+      position: relative;
+      padding: 10px 0px 10px 0px;
+      font-size: 14px;
+    }
+  </style>
 <% end %>
 <%= content_for :scripts do %>
   <!--<script type="text/javascript" src="/assets/home.js"></script>-->
@@ -9,27 +26,13 @@
 
   </script>
 <% end %>
-<h1>nil</h1>
-<h1>文章列表</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
+<div class="list">
     <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to 'Show', article %></td>
-      </tr>
+      <div class="cell">
+        <a class="title" title="<%= article.title %>" href="articles/<%= article.id %>">
+          <%= article.title %>
+        </a>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
+</div>
 

@@ -1,3 +1,32 @@
 // Place all the styles related to the Articles controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.content {
+  padding: 0px;
+  margin-top: 10px;
+  #margin-right: 305px;
+}
+.panel {
+  margin-bottom: 13px;
+}
+.article_title {
+  background-color: #FFF;
+  padding: 10px;
+  border-radius: 3px 3px 0px 0px; 
+  font-size: 22px;
+  font-weight: 700;
+  margin: 8px 0px;
+  padding: 0px 20px 0px 20px;
+  display: inline-block;
+  vertical-align: bottom;
+}
+.inner {
+  padding: 10px;
+  border-top: 1px solid #E5E5E5;
+}
+.article_content {
+  line-height: 2em;
+  margin: 0px 10px;
+  background-color: #FFF;
+  border-radius: 0px 0px 3px 3px;
+}
