@@ -22,7 +22,7 @@ body {
   text-shadow: none;
   color: #ccc;
 }
-#main {
+.main {
   width: 90%;
-  margin: 15px auto;
+  margin: 10px auto auto auto;
 }
