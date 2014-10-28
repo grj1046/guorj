@@ -1,4 +1,13 @@
 Guorj::Application.routes.draw do
+  get 'user/index'
+  match 'user', to: 'user#index', via: 'get'
+
+  get 'user/signin'
+
+  get 'user/signup'
+
+  get 'user/logout'
+
   resources :articles
 
   get "home/index"
