@@ -12,7 +12,7 @@
  * require_tree .
  */
 body {
-  padding-top: 50px;
+  #padding-top: 50px;
   background-color: #E1E1E1;
 }
 .navbar {
