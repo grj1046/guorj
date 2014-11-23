@@ -27,5 +27,6 @@ module Guorj
     config.assets.precompile += %w{ *.css *.js *.png *.jpg *.jpeg *.gif }
     config.assets.initialize_on_precompile = false
     config.enforce_avaliables_locales = true
+    I18n.enforce_available_locales = true
   end
 end
