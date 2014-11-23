@@ -1,12 +1,15 @@
 Guorj::Application.routes.draw do
-  get 'user/index'
-  match 'user', to: 'user#index', via: 'get'
+  get 'users/index'
+  #resources :users
+  match 'users', to: 'users#index', via: 'get'
 
-  get 'user/signin'
-
+  get 'users/signin'
+  get 'signin', to: 'users#signin', via: 'get'
   get 'user/signup'
-
-  get 'user/logout'
+  get 'signup', to: 'users#signup', via: 'get'
+  get 'users/logout'
+  get 'logout', to: 'users#logout', via: 'get'
+  get 'user/:id' => 'users#show', via: 'get'
 
   resources :articles
 
