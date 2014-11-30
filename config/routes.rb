@@ -1,14 +1,15 @@
 Guorj::Application.routes.draw do
   
-  match 'signin', to: 'users#signin', via: 'get'
-  match 'signup', to: 'users#signup', via: 'get'
-  match 'logout', to: 'users#logout', via: 'get'
-  match 'user/:id' => 'users#show', via: 'get'
-  match 'users', to: 'users#create', via: 'post'
-  match 'users', to: 'users#index', via: 'get'
+  match 'signup',   to: 'users#signup',     via: 'get'
+  match 'user/:id', to: 'users#show',       via: 'get'
+  match 'users',    to: 'users#create',     via: 'post'
+  match 'users',    to: 'users#index',      via: 'get'
+  match 'signin',   to: 'sessions#new',     via: 'get'
+  match 'signout',  to: 'sessions#destroy', via: 'delete'
 
   resources :articles
-  resources :users
+  resources :users 
+  resources :sessions, only: [:new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

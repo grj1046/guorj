@@ -4,14 +4,9 @@ class UsersController < ApplicationController
   def index
   end
 
-  def signin
-  end
-
+  #GET
   def signup
     @user = User.new
-  end
-
-  def logout
   end
 
   def show
@@ -24,6 +19,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        sign_in @user
         #flash[:success] = "注册成功"
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
