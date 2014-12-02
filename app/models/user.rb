@@ -8,6 +8,7 @@ class User
 
   field :name,            type: String
   field :email,           type: String
+  field :admin,           type: Mongoid::Boolean, default: false
   field :password_digest, type: String
   field :remember_token,  type: String
 
@@ -16,7 +17,7 @@ class User
 
   validates_presence_of :name, :email
   validates_uniqueness_of :name, :email, case_sentive: false
-  validates :name, length: 0..16
+  validates :name, length: 0..32
   validates :password, length: 6..20
   validates :email, format: {with:/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
 

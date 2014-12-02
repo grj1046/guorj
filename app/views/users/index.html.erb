@@ -1,1 +1,13 @@
-<h1>User Index</h1>
+<h1>所有用户</h1>
+
+<ul class="users">
+  <% @users.each do |user| %>
+     <%= render user %>
+   <% end %>
+</ul>
+
+<%= will_paginate %>
+
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag "users", media: "all" %>
+<% end %>
