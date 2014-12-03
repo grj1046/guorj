@@ -15,6 +15,9 @@ class User
   index email:          1
   index remember_token: 1
 
+  #TODO:has_many会导致执行bundle exec rake db:populate出错
+  #has_many :articles, dependent: :destroy
+
   validates_presence_of :name, :email
   validates_uniqueness_of :name, :email, case_sentive: false
   validates :name, length: 0..32
