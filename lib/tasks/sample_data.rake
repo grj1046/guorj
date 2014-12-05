@@ -1,6 +1,11 @@
 namespace :db do
   desc "File database with sample data"
   task populate: :environment do
+    generate_user
+    generate_article 
+  end
+
+  def generate_user
     User.create!(name: "nil",
                  email: "nil@guorj.com",
                  admin: true,
@@ -15,11 +20,18 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+  end # end
 
-    #users = User.all(limit: 6)
-    #50.times do |n| 
-    #  content = Faker::Lorem.sentence(5)
-    #  users.each { |user| user.articles.create!({title: "title {n}", content: content}) }
+  def generate_article
+    #50.times do |n|
+    #  User.first.articles.create!(title: Faker::Lorem.sentence(1), content:Faker::Lorem.sentence(5))
     #end
-  end
+
+    users = User.all.limit(6)
+    users.each do |user|
+      50.times do
+        user.articles.create!(title: Faker::Lorem.sentence(1), content:Faker::Lorem.sentence(5))
+      end
+    end
+  end # end
 end

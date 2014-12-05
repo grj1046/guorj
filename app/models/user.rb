@@ -15,12 +15,11 @@ class User
   index email:          1
   index remember_token: 1
 
-  #TODO:has_many会导致执行bundle exec rake db:populate出错
-  #has_many :articles, dependent: :destroy
+  has_many :articles, dependent: :destroy
 
   validates_presence_of :name, :email
   validates_uniqueness_of :name, :email, case_sentive: false
-  validates :name, length: 0..32
+  validates :name, length: 3..32
   validates :password, length: 6..20
   validates :email, format: {with:/\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i}
 
@@ -31,12 +30,12 @@ class User
     SecureRandom.urlsafe_base64
   end
 
-  def User.hash(token)
+  def User.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
   end
 
   private
     def create_remember_token
-      self.remember_token = User.hash(User.new_remember_token)
+      self.remember_token = User.digest(User.new_remember_token)
     end
 end

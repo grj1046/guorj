@@ -61,15 +61,6 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 
-    def signed_in_user
-      #redirect_to signin_url, notice: "请先登录..." unless signed_in?
-      unless signed_in?
-        store_location
-        flash[:warning] = "请先登录..."
-        redirect_to signin_url
-      end
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
