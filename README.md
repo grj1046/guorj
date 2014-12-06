@@ -1,5 +1,13 @@
 == README
 
+#when deployment this app, please run this command when you start the server.
+
+```
+rm -rf public/assets/*
+
+RAILS_ENV=production bundle exec rake assets:precompile
+```
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
