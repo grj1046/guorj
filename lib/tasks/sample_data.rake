@@ -30,7 +30,7 @@ namespace :db do
     users = User.all.limit(6)
     users.each do |user|
       50.times do
-        user.articles.create!(title: Faker::Lorem.sentence(1), content:Faker::Lorem.sentence(5))
+        user.articles.create!(title: Faker::Lorem.sentence(1), content:Faker::Lorem.sentence(500))
       end
     end
   end # end
