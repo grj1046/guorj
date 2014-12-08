@@ -1,32 +1,30 @@
-<h1>Listing articles</h1>
+<div class="list">
+  <% @articles.each do |article| %>
+    <div class="cell">
+      <div class="row">
+        <div class="col-md-9">
+          <%= link_to article.title, article, class: "title", title: article.title %>
+        </div>
+        <div class="col-md-3">
+          <div class="pull-right small">
+            <% if article.updated_at > article.created_at %>
+              <div title="<%= article.updated_at.localtime.to_s(:db) %>">更新时间:<%= article.updated_at.localtime.to_s(:db) %></div>
+            <% else %>
+              <div title="<%= article.created_at.localtime.to_s(:db) %>">创建时间:<%= time_ago_in_words article.created_at.localtime.to_s(:db) %> ago</div>
+            <% end %>
+            <% if signed_in? %>
+            <%= link_to '编辑', edit_article_path(article) %>
+            <%= link_to '删除', article, method: :delete, data: {confirm: '确定要删除吗?'} %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<%= will_paginate @articles %>
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to 'Show', article %></td>
-        <% if signed_in? && current_user?(current_user) %>
-          <td><%= link_to 'Edit', edit_article_path(article) %></td>
-          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if signed_in? && current_user?(current_user) %>
-  <%= link_to 'New Article', new_article_path %>
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag "articles" %>
 <% end %>

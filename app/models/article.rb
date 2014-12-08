@@ -1,6 +1,8 @@
 class Article
   include Mongoid::Document
   include Mongoid::Timestamps
+  WillPaginate.per_page = 10
+
   #field :user_id, type:Mongoid::Id 
   field :title,   type: String
   field :content, type: String

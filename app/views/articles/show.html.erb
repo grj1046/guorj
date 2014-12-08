@@ -7,7 +7,16 @@
       <div class="article_content">
        <%= @article.content %> 
       </div>
-      <div class="action"></div>
+    <div class="article_footer small">
+    <div class="posted_time">
+      <% if @article.updated_at > @article.created_at %>
+        更新时间:<%= @article.updated_at.localtime.to_s(:db) %>
+      <% else %>
+        创建时间:<%= @article.created_at.localtime.to_s(:db) %>
+      <% end %>
+    </div>
+    </div> 
+    <div class="action"></div>
     </div>
   </div>
 </div>
