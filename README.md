@@ -1,11 +1,24 @@
 == README
 
-#when deployment this app, please run this command when you start the server.
+###when deployment this app, please run this command when you start the server.
 
 ```
 rm -rf public/assets/*
 
 RAILS_ENV=production bundle exec rake assets:precompile
+```
+
+###prepare the test data
+
+```
+buncle exec rake db:reset
+bundle exec rake db:populate
+```
+
+###run unicorn
+
+```
+unicorn_rails -c config/unicorn.rb -E production -D
 ```
 
 This README would normally document whatever steps are necessary to get the
