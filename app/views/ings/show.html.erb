@@ -1,0 +1,18 @@
+<div class="panel">
+  <div class="content">
+    <%= @ing.content %>
+  </div>
+  <div class="ing_footer small">
+    <span>创建时间:<%= @ing.created_at.localtime.to_s(:db) %></span>
+    <span>更新时间:<%= @ing.updated_at.localtime.to_s(:db) %></span>
+  </div>
+</div>
+
+<% if signed_in? && current_user?(current_user) %>
+  <%= link_to '编辑', edit_article_path(@ing) %>
+  <%= link_to '返回', ings_path %>
+<% end %>
+
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag "ings", media: "all" %>
+<% end %>

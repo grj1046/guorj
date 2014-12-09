@@ -1,0 +1,28 @@
+<div class="list">
+  <% @ings.each do |ing| %>
+    <div class="cell">
+      <%= ing.content %>
+      <span class="small">
+        <% if ing.updated_at > ing.created_at %>
+          <span title="<%= ing.updated_at.localtime.to_s(:db) %>">
+            updated at:<%= link_to time_ago_in_words(ing.updated_at.localtime.to_s(:db)), ing %> ago
+          </span>
+        <% else %>
+          <span title="<%= ing.created_at.localtime.to_s(:db) %>">
+            created at:<%= link_to time_ago_in_words(ing.created_at.localtime.to_s(:db)), ing %> ago
+          </span>
+        <% end %>
+        <% if signed_in? %>
+          <%= link_to '编辑', edit_ing_path(ing) %>
+          <%= link_to '删除', ing, method: :delete, data: { confirm: '确定要删除吗?'} %>
+        <% end %>
+      </span>
+    </div>
+  <% end %>
+</div>
+
+<%= will_paginate @ings %>
+
+<%= content_for :styles do  %>
+  <%= stylesheet_link_tag "ings", media: 'all' %>
+<% end %>

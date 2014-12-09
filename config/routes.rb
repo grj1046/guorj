@@ -1,5 +1,4 @@
 Guorj::Application.routes.draw do
-  
   match 'signup',   to: 'users#signup',     via: 'get'
   match 'user/:id', to: 'users#show',       via: 'get'
   match 'users',    to: 'users#create',     via: 'post'
@@ -8,6 +7,7 @@ Guorj::Application.routes.draw do
   match 'signout',  to: 'sessions#destroy', via: 'delete'
 
   resources :articles
+  resources :ings
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
 

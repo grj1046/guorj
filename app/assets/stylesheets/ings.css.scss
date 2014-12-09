@@ -1,0 +1,40 @@
+// Place all the styles related to the Ings controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* index.html page */
+
+.list {
+  padding: 0;
+  line-height: 2em;
+  background-color: #FFF;
+  border-radius: 4px;
+}
+
+.cell {
+  border-top: 1px solid #F0F0F0;
+  overflow: hidden;
+  position: relative;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.cell:hover {
+  background-color: #F5F5F5;
+}
+
+/* show.html page */
+.content {
+  padding-bottom: 10px;
+}
+
+.panel {
+  margin-bottom: 13px;
+  padding: 10px;
+}
+
+.ing_footer {
+  padding: 10px 0 0 0;
+  border-top: 1px solid #E5E5E5;
+  text-align: right;
+}

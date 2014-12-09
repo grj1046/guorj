@@ -16,6 +16,7 @@ class User
   index remember_token: 1
 
   has_many :articles, dependent: :destroy
+  has_many :ings,     dependent: :destroy
 
   validates_presence_of :name, :email
   validates_uniqueness_of :name, :email, case_sentive: false
