@@ -5,11 +5,11 @@
       <span class="small">
         <% if ing.updated_at > ing.created_at %>
           <span title="<%= ing.updated_at.localtime.to_s(:db) %>">
-            updated at:<%= link_to time_ago_in_words(ing.updated_at.localtime.to_s(:db)), ing %> ago
+            <%= link_to time_ago_in_words(ing.updated_at.localtime.to_s(:db)), ing %>
           </span>
         <% else %>
           <span title="<%= ing.created_at.localtime.to_s(:db) %>">
-            created at:<%= link_to time_ago_in_words(ing.created_at.localtime.to_s(:db)), ing %> ago
+            <%= link_to time_ago_in_words(ing.created_at.localtime.to_s(:db)), ing %>
           </span>
         <% end %>
         <% if signed_in? %>

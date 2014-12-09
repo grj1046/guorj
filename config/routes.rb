@@ -1,23 +1,22 @@
 Guorj::Application.routes.draw do
-  match 'signup',   to: 'users#signup',     via: 'get'
-  match 'user/:id', to: 'users#show',       via: 'get'
-  match 'users',    to: 'users#create',     via: 'post'
-  match 'users',    to: 'users#index',      via: 'get'
-  match 'signin',   to: 'sessions#new',     via: 'get'
-  match 'signout',  to: 'sessions#destroy', via: 'delete'
+  # The priority is based upon order of creation: first created -> highest priority.
+  # See how all your routes lay out with "rake routes".
+
+  # You can have the root of your site routed with "root"
+  root 'home#index'
+  match '/signup',   to: 'users#signup',     via: 'get'
+  match '/user/:id', to: 'users#show',       via: 'get'
+  match '/users',    to: 'users#create',     via: 'post'
+  match '/users',    to: 'users#index',      via: 'get'
+  match '/signin',   to: 'sessions#new',     via: 'get'
+  match '/signout',  to: 'sessions#destroy', via: 'delete'
+  match '/about',    to: 'home#about',       via: 'get'
 
   resources :articles
   resources :ings
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'home#index'
-  match 'contact', to: 'home#index', via: 'get'
-  match 'about',   to: 'home#index', via: 'get'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
