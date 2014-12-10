@@ -16,6 +16,12 @@ body {
   background-color: #E1E1E1;
 }
 
+input,
+select,
+textarea {
+  max-width: 280px;
+}
+
 textarea {
   resize: none;
 }

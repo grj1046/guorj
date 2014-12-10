@@ -12,10 +12,15 @@ Guorj::Application.routes.draw do
   match '/signout',  to: 'sessions#destroy', via: 'delete'
   match '/about',    to: 'home#about',       via: 'get'
 
+  #match '/site_configs', to: 'site_configs#index', via: 'get'
+  #get 'site_configs/index'
+  #get 'site_configs/edit'
+
   resources :articles
   resources :ings
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
+  resources :site_configs#, only: [:index, :edit]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

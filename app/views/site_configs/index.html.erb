@@ -1,0 +1,12 @@
+<h1>设置项</h1>
+<div class="panel">
+  <div class="list">
+    <% @site_configs.each do |site_config| %> 
+      <div class="cell">
+        <span id="config_key"><%= site_config.key %></span>
+        <span id="config_value"><%= site_config.value %></span>
+        <span id="action"><%= link_to '修改', edit_site_config_path(site_config) %></span>
+      </div> 
+    <% end %>
+  </div>
+</div>

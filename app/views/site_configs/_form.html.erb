@@ -1,0 +1,21 @@
+<div>
+  <%= form_for @site_config, html: {class: "form-horizontal", role: "form"} do |f| %>
+    <h1>更新配置</h1>
+    <hr />
+    <%= render 'shared/error_messages', object: f.object %>
+
+    <div class="form-group">
+      <label class="control-label">Key</label>
+      <span class="form-control"><%= @site_config.key %></span>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label">说明</label>
+      <%= f.text_area :value, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit '修改', class: "btn btn-primary btn-large" %>
+    </div>
+  <% end %>
+</div>
