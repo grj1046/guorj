@@ -9,7 +9,7 @@
 </div>
 
 <% if signed_in? && current_user?(current_user) %>
-  <%= link_to '编辑', edit_article_path(@ing) %>
+  <%= link_to '编辑', edit_ing_path(@ing) %>
   <%= link_to '返回', ings_path %>
 <% end %>
 
