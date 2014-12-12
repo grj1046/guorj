@@ -5,13 +5,12 @@
   <div class="ing_footer small">
     <span>创建时间:<%= @ing.created_at.localtime.to_s(:db) %></span>
     <span>更新时间:<%= @ing.updated_at.localtime.to_s(:db) %></span>
+    <% if signed_in? %>
+      <%= link_to '编辑', edit_ing_path(@ing) %>
+      <%= link_to '删除', @ing, method: :delete, data: { confirm: '确定要删除吗?'} %>
+    <% end %>
   </div>
 </div>
-
-<% if signed_in? && current_user?(current_user) %>
-  <%= link_to '编辑', edit_ing_path(@ing) %>
-  <%= link_to '返回', ings_path %>
-<% end %>
 
 <%= content_for :styles do %>
   <%= stylesheet_link_tag "ings", media: "all" %>

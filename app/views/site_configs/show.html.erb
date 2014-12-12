@@ -1,0 +1,23 @@
+<div class="panel">
+  <div class="content">
+    <div class="panel">
+      <div class="config_key">
+        <%= @site_config.key %>
+      </div>
+      <hr />
+      <div class="config_value">
+        <pre><%= @site_config.value %></pre>
+      </div>
+      <div class="config_footer small">
+        <span>创建时间:<%= @site_config.created_at.localtime.to_s(:db) %></span>
+        <span>更新时间:<%= @site_config.updated_at.localtime.to_s(:db) %></span>
+        <%= link_to '编辑', edit_site_config_path(@site_config) %>
+        <%= link_to '返回', site_configs_path %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag 'site_configs', media: 'all' %>
+<% end %>

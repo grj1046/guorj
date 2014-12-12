@@ -14,9 +14,7 @@
 <body>
   <%= render 'layouts/header' %>
   <div class="container main">
-    <% flash.each do |key, value| %>
-      <div class="control-label has-<%= key %>"><%= value %></div>
-    <% end %>
+    <%= notice_message %>
     <%= yield %>
   </div>
   <%= render 'layouts/footer' %>

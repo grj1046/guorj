@@ -1,11 +1,23 @@
 // Place all the styles related to the SiteConfigs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-label {
-  width: auto;
+.config_key {
+  font-size: 14px;
 }
 
-span {
-  max-width: 280px;
+.config_value {
+}
+
+/* index.html */
+.cell {
+  padding: 10px;
+}
+
+/* show.html */
+.content {
+  padding: 10px 10px 0 10px;
+}
+
+.config_footer {
+  text-align: right;
 }

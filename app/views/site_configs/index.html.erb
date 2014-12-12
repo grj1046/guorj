@@ -1,12 +1,14 @@
 <h1>设置项</h1>
-<div class="panel">
-  <div class="list">
-    <% @site_configs.each do |site_config| %> 
-      <div class="cell">
-        <span id="config_key"><%= site_config.key %></span>
-        <span id="config_value"><%= site_config.value %></span>
-        <span id="action"><%= link_to '修改', edit_site_config_path(site_config) %></span>
-      </div> 
-    <% end %>
-  </div>
+<div class="list">
+  <% @site_configs.each do |site_config| %> 
+    <div class="cell panel">
+      <div class="config_key">键: <%= link_to site_config.key, site_config_path(site_config) %></div>
+      <hr />
+      <div class="config_value"><pre><%= site_config.value %></pre></div>
+    </div> 
+  <% end %>
 </div>
+
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag 'site_configs', media: 'all' %>
+<% end %>
