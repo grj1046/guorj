@@ -1,0 +1,17 @@
+<div class="flash">
+<%= link_to 'x', '#', class: 'close', 'data-dismiss' => 'alert' %>
+<% if @ing.errors.any? %>
+  <div id="error_explanation">
+    <div>
+      The form contains <%= pluralize(@ing.errors.count, "error") %>.
+    </div>
+    <ul>
+      <% @ing.errors.full_messages.each do |msg| %>
+        <li>* <%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% else %>
+  <div>发布成功</div>
+<% end %>
+</div>

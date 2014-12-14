@@ -1,0 +1,14 @@
+<div class="cell panel">
+  <%= ing.content %>
+  <span class="small">
+    <% if ing.updated_at > ing.created_at %>
+      <span title="<%= ing.updated_at.localtime.to_s(:db) %>">
+        <%= link_to time_ago_in_words(ing.updated_at.localtime.to_s(:db)), ing %>
+      </span>
+    <% else %>
+      <span title="<%= ing.created_at.localtime.to_s(:db) %>">
+        <%= link_to time_ago_in_words(ing.created_at.localtime.to_s(:db)), ing %>
+      </span>
+    <% end %>
+  </span>
+</div>

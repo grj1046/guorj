@@ -5,6 +5,7 @@ class IngsController < ApplicationController
   # GET /ings
   # GET /ings.json
   def index
+    @ing = Ing.new
     @ings = Ing.paginate(page: params[:page])
   end
 
@@ -29,10 +30,12 @@ class IngsController < ApplicationController
     respond_to do |format|
       if @ing.save
         format.html { redirect_to @ing, notice: 'Ing was successfully created.'}
-        format.js { render action: 'show', status: :created, location: @ing }
+        format.json { render action: 'show', status: :created, location: @ing }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @ing.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

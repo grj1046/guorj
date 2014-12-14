@@ -17,6 +17,6 @@ module ApplicationHelper
       flash_message << text if message
     end
  
-    content_tag(:div, link_to('x', '#', :class => 'close', 'data-dismiss' => 'alert') + flash_message.join('\n').html_safe, :class => 'carousel flash') unless flash_message.empty?
+    content_tag(:div, link_to('x', '#', :class => 'close', 'data-dismiss' => 'alert') + flash_message.join('\n').html_safe, :class => 'flash') unless flash_message.empty?
   end
 end

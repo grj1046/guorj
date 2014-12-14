@@ -1,20 +1,14 @@
 <% provide(:title, '闪存') %>
-<div class="list">
+
+<div id="notice"></div>
+
+<div class="ing_form">
+  <%= render 'form' %>
+</div>
+
+<div id="list" class="list">
   <% @ings.each do |ing| %>
-    <div class="cell panel">
-      <%= ing.content %>
-      <span class="small">
-        <% if ing.updated_at > ing.created_at %>
-          <span title="<%= ing.updated_at.localtime.to_s(:db) %>">
-            <%= link_to time_ago_in_words(ing.updated_at.localtime.to_s(:db)), ing %>
-          </span>
-        <% else %>
-          <span title="<%= ing.created_at.localtime.to_s(:db) %>">
-            <%= link_to time_ago_in_words(ing.created_at.localtime.to_s(:db)), ing %>
-          </span>
-        <% end %>
-      </span>
-    </div>
+    <%= render('item', ing: ing) %>
   <% end %>
 </div>
 
