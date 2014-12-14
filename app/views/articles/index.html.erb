@@ -1,7 +1,7 @@
 <% provide(:title, '文章') %>
 <div class="list">
   <% @articles.each do |article| %>
-    <div class="cell">
+    <div class="cell panel">
       <div class="row">
         <div class="col-md-9">
           <%= link_to article.title, article, class: "title", title: article.title %>
@@ -9,15 +9,11 @@
         <div class="col-md-3">
           <div class="pull-right small">
             <% if article.updated_at > article.created_at %>
-              <div title="<%= article.updated_at.localtime.to_s(:db) %>"><%= article.updated_at.localtime.to_s(:db) %></div>
+              <div title="<%= article.updated_at.localtime.to_s(:db) %>"><%= time_ago_in_words article.updated_at.localtime.to_s(:db) %></div>
             <% else %>
               <div title="<%= article.created_at.localtime.to_s(:db) %>"><%= time_ago_in_words article.created_at.localtime.to_s(:db) %></div>
             <% end %>
-            <% if signed_in? %>
-            <%= link_to '编辑', edit_article_path(article) %>
-            <%= link_to '删除', article, method: :delete, data: {confirm: '确定要删除吗?'} %>
-            <% end %>
-          </div>
+         </div>
         </div>
       </div>
     </div>

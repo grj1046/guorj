@@ -8,11 +8,17 @@ rm -rf public/assets/*
 RAILS_ENV=production bundle exec rake assets:precompile
 ```
 
-###prepare the test data
+### for test, prepare the test data
 
 ```
 buncle exec rake db:reset
 bundle exec rake db:populate
+```
+
+### for production, init the data
+
+```
+bundle exec rake db:seed
 ```
 
 ###run unicorn
