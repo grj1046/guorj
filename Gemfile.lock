@@ -106,6 +106,7 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    redcarpet (3.2.2)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -182,6 +183,7 @@ DEPENDENCIES
   mongo
   mongoid (= 4.0.0)
   rails (= 4.1.8)
+  redcarpet (= 3.2.2)
   rspec-rails (~> 3.1.0)
   sass-rails (~> 4.0.5)
   sdoc

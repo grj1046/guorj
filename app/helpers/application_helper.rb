@@ -19,4 +19,19 @@ module ApplicationHelper
  
     content_tag(:div, link_to('x', '#', :class => 'close', 'data-dismiss' => 'alert') + flash_message.join('\n').html_safe, :class => 'flash') unless flash_message.empty?
   end
+
+  def markdown(str, options = {})
+    options[:hard_wrap] ||= false
+    options[:class] ||= ''
+
+    renderer = Redcarpet::Render::HTML.new(
+      hard_wrap: options[:hard_wrap],
+      prettify: true
+    )
+    md = Redcarpet::Markdown.new(renderer, extensions = {
+      autolink: true,
+      fenced_code_blocks: true
+    })
+    content_tag(:div, sanitize(md.render(str)), class: options[:class])
+  end
 end
