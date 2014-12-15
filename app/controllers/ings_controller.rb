@@ -14,11 +14,6 @@ class IngsController < ApplicationController
   def show
   end
 
-  # GET /ings/new
-  def new
-    @ing = Ing.new
-  end
-
   # GET /ings/1/edit
   def edit
   end

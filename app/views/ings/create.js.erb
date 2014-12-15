@@ -2,5 +2,5 @@ $('#notice').html("<%= escape_javascript(render('notice_message')) %>");
 <% if @ing.errors.empty? %>
   var list = $('#list');
   list.prepend("<%= escape_javascript(render('item', ing: @ing)) %>");
-  $('#ing_copntent').val('');
+  $('#ing_content').val('');
 <% end %>
