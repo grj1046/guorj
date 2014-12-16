@@ -4,3 +4,7 @@
 
 <%= link_to 'Show', @article %> |
 <%= link_to 'Back', articles_path %>
+
+<%= content_for :styles do %>
+  <%= stylesheet_link_tag 'articles', media: 'all' %>
+<% end %>
