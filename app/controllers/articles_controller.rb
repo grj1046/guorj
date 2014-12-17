@@ -22,6 +22,15 @@ class ArticlesController < ApplicationController
   def edit
   end
 
+  # POST /preview_article.json
+  def preview
+    @body = params[:body]
+
+    respond_to do |format|
+      format.json
+    end
+  end
+
   # POST /articles
   # POST /articles.json
   def create

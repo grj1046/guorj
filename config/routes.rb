@@ -16,7 +16,11 @@ Guorj::Application.routes.draw do
   #get 'site_configs/index'
   #get 'site_configs/edit'
 
-  resources :articles
+  resources :articles do
+    collection do
+      post :preview
+    end
+  end
   resources :ings
   resources :users 
   resources :sessions, only: [:new, :create, :destroy]
