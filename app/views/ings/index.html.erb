@@ -2,9 +2,11 @@
 
 <div id="notice"></div>
 
-<div class="ing_form">
-  <%= render 'form' %>
-</div>
+<% if signed_in? %>
+  <div class="ing_form">
+    <%= render 'form' %>
+  </div>
+<% end %>
 
 <div id="list" class="list">
   <% @ings.each do |ing| %>
