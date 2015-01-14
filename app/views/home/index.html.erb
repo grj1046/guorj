@@ -2,22 +2,8 @@
   <!--<link rel="stylesheet" href="/assets/home.js" />-->
   <%= stylesheet_link_tag "home" %>
   <style type="text/css">
-    .list {
-      padding: 0px;
-      line-height:2em;
-      background-color: #FFF;
-      border-radius: 4px;
-    }
-    .cell {
-      border-top: 1px solid #F0F0F0; 
-      padding-right: 10px;
-      overflow: hidden;
-      position: relative;
-      padding: 10px;
-      font-size: 14px;
-    }
-    .cell:hover{
-      background-color: #F5F5F5;
+    .jumbotron {
+      text-align: center;
     }
   </style>
 <% end %>
@@ -28,13 +14,27 @@
 
   </script>
 <% end %>
-<div class="list">
-    <% @articles.each do |article| %>
-      <div class="cell">
-        <a class="title" title="<%= article.title %>" href="articles/<%= article.id %>">
-          <%= article.title %>
-        </a>
-      </div>
-    <% end %>
+
+<div class="container">
+  <div class="jumbotron">
+    <%= raw SiteConfig.jumbotron_html %>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <h2>文章</h2>
+      <p>原创或者转载的文章</p>
+      <p><a class="btn btn-primary" href="/articles">View</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>闪存</h2>
+      <p>一些有用的或者乱七八糟的东西</p>
+      <p><a class="btn btn-primary" href="/ings">View</a></p>
+    </div>
+    <div class="col-md-4">
+      <h2>链接</h2>
+      <p>该模块尚未开发</p>
+      <p><a class="btn btn-primary" href="javascript:void(0);">View</a></p>
+    </div>
+  </div>
 </div>
 

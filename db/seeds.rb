@@ -16,8 +16,15 @@ User.create(name: 'admin',
 # 默认配置项
 #如需新增设置项，请在这里初始化默认值，然后到后台修改
 
+# home
+SiteConfig.save_default("jumbotron_html", <<-eos
+<h1>Hello World</h1>
+eos
+)
+
 # about me HTML
 SiteConfig.save_default("about_html", <<-eos
 关于网站
 eos
 )
+
