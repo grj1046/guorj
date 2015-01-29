@@ -22,6 +22,7 @@
   <script src="http://grjsoft.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   <%= javascript_include_tag "jquery-ujs" %>
   <%= yield :scripts %>
+<% if Rails.env.production? %>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -30,8 +31,8 @@
 
   ga('create', 'UA-57983583-1', 'auto');
   ga('send', 'pageview');
-
 </script>
+<% end %>
   <%= debug(params) if Rails.env.development? %>
 </body>
 </html>
